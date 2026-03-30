@@ -48,12 +48,13 @@ if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH) {
 
 // LOAD OUR PATHS CONFIG FILE
 // This is the line that might need to be changed, depending on your folder structure.
-require FCPATH . '../app/Config/Paths.php';
-// ^^^ Change this line if you move your application folder
+// Menggunakan require_once untuk memastikan file hanya di-load satu kali dan mencegah error duplikasi.
+require_once FCPATH . '../app/Config/Paths.php';
+// ^^^ Change this line jika Anda memindahkan folder aplikasi
 
 $paths = new Paths();
 
-// LOAD THE FRAMEWORK BOOTSTRAP FILE
-require $paths->systemDirectory . '/Boot.php';
+// Menggunakan require_once untuk mencegah duplikasi load file Boot.php
+require_once $paths->systemDirectory . '/Boot.php';
 
 exit(Boot::bootWeb($paths));
