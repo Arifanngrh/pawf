@@ -1,51 +1,110 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>MyBlog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $post['title'] ?> - MyBlog</title>
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>" />
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a, #020617);
+            min-height: 100vh;
+            color: #e2e8f0;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 120px 20px 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        /* POST CARD */
+        .post-card {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+        }
+
+        .post-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #38bdf8;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .post-content {
+            line-height: 1.8;
+            color: #cbd5f5;
+        }
+
+        /* FOOTER */
+        footer {
+            color: #64748b;
+        }
+    </style>
 </head>
 
 <body>
 
-	<?= $this->include('layouts/navbar'); ?>
+    <?= $this->include('layouts/navbar'); ?>
 
-	<div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container py-5">
-        <h1 class="display-5 fw-bold">Blog Detail</h1>
-        <!-- <p class="col-md-8 fs-4">di laman portal berita</p> -->
-        <!-- <button class="btn btn-primary btn-sm" type="button">Read more</button> -->
-      </div>
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Blog Detail</h1>
     </div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 my-2 card">
-				<div class="card-body">
-					<h5 class="h5"><?= $post['title'] ?></h5>            
-                    <span><?= $post['author'] ?> | <?= $post['created_at'] ?></span>
-					<p><?= $post['content'] ?></p>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-	<div class="container py-4">
-		<footer class="pt-3 mt-4 text-muted border-top">
-			<div class="container">
-				&copy; <?= Date('Y') ?>
-			</div>
-		</footer>
-	</div>
+    <!-- CONTENT -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                
+                <div class="post-card">
 
-	<!-- Jquery dan Bootsrap JS -->
-	<script src="<?= base_url('js/jquery.min.js') ?>"></script>
-	<script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
+                    <div class="post-title">
+                        <?= $post['title'] ?>
+                    </div>
+
+                    <div class="post-meta">
+                        ✍️ <?= $post['author'] ?> • <?= $post['created_at'] ?>
+                    </div>
+
+                    <div class="post-content">
+                        <?= $post['content'] ?>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="container py-5">
+        <footer class="text-center border-top pt-4 mt-5">
+            <p>&copy; <?= Date('Y') ?> MyBlog Gndrng</p>
+        </footer>
+    </div>
+
+    <!-- JS -->
+    <script src="<?= base_url('js/jquery.min.js') ?>"></script>
+    <script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
 
 </body>
 

@@ -1,89 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,
-initial-scale=1.0">
-<title>MyBlog</title>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="<?=
-base_url('css/bootstrap.min.css') ?>" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBlog</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>" />
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a, #020617);
+            min-height: 100vh;
+            color: #e2e8f0;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 120px 20px 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #94a3b8;
+        }
+
+        /* CARD */
+        .dark-card {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 18px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .dark-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+            border-color: #38bdf8;
+        }
+
+        .section-title {
+            font-weight: 600;
+            color: #38bdf8;
+        }
+
+        /* BUTTON */
+        .btn-custom {
+            background: #38bdf8;
+            border: none;
+            color: #020617;
+            border-radius: 50px;
+            padding: 10px 25px;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background: #0ea5e9;
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            color: #64748b;
+        }
+    </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-<div class="container">
-    <a class="navbar-brand" href="<?=base_url() ?>">MyBlog</a>
-<button class="navbar-toggler"
-    type="button" data-bs-toggle="collapse" data-bs-
-    target="#navbarNav" aria-controls="navbarNav" aria-
-    expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse"
-id="navbarNav">
-<ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?= base_url() ?>">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('about') ?>">About</a>
-    </li>
-        <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('post') ?>">Blog</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('contact') ?>">Contact</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('faqs') ?>">FAQ</a>
-        </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container py-5">
-            <h1 class="display-5 fw-bold">Selamat Datang</h1>
-                <!-- <p class="col-md-8 fs-4">di laman portal berita</p>-->
-                    <!-- <button class="btn btn-primary btn-sm"z
-                type="button">Read more</button> -->
+
+    <?= $this->include('layouts/navbar'); ?>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Selamat Datang</h1>
+        <p>Belajar coding & berbagi pengalaman 🚀</p>
+        <a href="<?= base_url('post') ?>" class="btn btn-custom mt-3">Lihat Blog</a>
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 my-2 card">
-            <div class="card-body">
-                <h5 class="h5">Mulai ngoding PHP nich</h5>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam perferendis commodi tenetur quos ducimus repellat nulla, nam magni. Commodi iusto ad harum
-voluptas exercitationem facere eos earum laboriosam excepturi quas?</p>
-    </div>
-</div>
-            <div class="col-md-12 my-2 card">
-                <div class="card-body">
-                    <h5 class="h5">Jadi paham CSS dan JS</h5>
-<p>Lorem ipsum dolor sit amet
-consectetur adipisicing elit. Quibusdam perferendis commodi tenetur quos ducimus repellat nulla, nam magni. Commodi iusto ad harum
-voluptas exercitationem facere eos earum laboriosam excepturiquas?</p>
-    </div>
-</div>
-        <div class="col-md-12 my-2 card">
-            <div class="card-body">
-                <h5 class="h5">Codeigniter asyik juga kok</h5>
-<p>Lorem ipsum dolor sit amet
-consectetur adipisicing elit. Quibusdam perferendis commodi tenetur quos ducimus repellat nulla,?</p>
-            </div>
-        </div>
-    </div>
-</div>
-        <div class="container py-4">
-            <footer class="pt-3 mt-4 text-muted border-top">
-                <div class="container">
-                    &copy; <?= Date('Y') ?>
+
+    <!-- CONTENT -->
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="p-4 dark-card h-100">
+                    <h5 class="section-title">💻 Mulai ngoding PHP</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
-            </footer>
+            </div>
+
+            <div class="col-md-4">
+                <div class="p-4 dark-card h-100">
+                    <h5 class="section-title">🎨 Paham CSS & JS</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="p-4 dark-card h-100">
+                    <h5 class="section-title">🔥 CodeIgniter Seru</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+
         </div>
-<!-- Jquery dan Bootsrap JS -->
+    </div>
+
+    <!-- FOOTER -->
+    <div class="container py-5">
+        <footer class="text-center border-top pt-4 mt-5">
+            <p>&copy; <?= Date('Y') ?> MyBlog Gndrng</p>
+        </footer>
+    </div>
+
+    <!-- JS -->
     <script src="<?= base_url('js/jquery.min.js') ?>"></script>
-        <script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
-    </body>
+    <script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
+
+</body>
+
 </html>

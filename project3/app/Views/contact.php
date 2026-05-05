@@ -1,59 +1,120 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>MyBlog</title>
+	<title>MyBlog - Contact</title>
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>" />
+
+	<style>
+		body {
+			background: linear-gradient(135deg, #0f172a, #020617);
+			min-height: 100vh;
+			color: #e2e8f0;
+		}
+
+		/* HERO */
+		.hero {
+			padding: 120px 20px 60px;
+			text-align: center;
+		}
+
+		.hero h1 {
+			font-size: 3rem;
+			font-weight: bold;
+			color: #38bdf8;
+		}
+
+		.hero p {
+			color: #94a3b8;
+		}
+
+		/* CARD */
+		.dark-card {
+			background: rgba(15, 23, 42, 0.7);
+			border-radius: 18px;
+			border: 1px solid rgba(56, 189, 248, 0.2);
+			backdrop-filter: blur(10px);
+			transition: 0.3s;
+		}
+
+		.dark-card:hover {
+			transform: translateY(-6px);
+			box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+			border-color: #38bdf8;
+		}
+
+		.section-title {
+			font-weight: 600;
+			margin-bottom: 10px;
+			color: #38bdf8;
+		}
+
+		/* ICON */
+		.icon {
+			font-size: 1.8rem;
+			margin-bottom: 10px;
+		}
+
+		/* FOOTER */
+		footer {
+			color: #64748b;
+		}
+	</style>
 </head>
 
 <body>
 
 	<?= $this->include('layouts/navbar'); ?>
 
-	<div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container py-5">
-        <h1 class="display-5 fw-bold">Contact</h1>
-        
-      </div>
-    </div>
+	<!-- HERO -->
+	<div class="hero">
+		<h1>Contact Me</h1>
+		<p>Hubungi saya melalui informasi berikut</p>
+	</div>
 
+	<!-- CONTENT -->
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12 my-2 card">
-				<div class="card-body">
-					<h5 class="h5">Alamat</h5>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam perferendis commodi tenetur quos ducimus repellat nulla, nam magni. Commodi iusto ad harum voluptas exercitationem facere eos earum laboriosam excepturi quas?</p>
+		<div class="row g-4 text-center">
+
+			<div class="col-md-4">
+				<div class="p-4 dark-card h-100">
+					<div class="icon">📍</div>
+					<h5 class="section-title">Alamat</h5>
+					<p>Jl. Contoh No.123, Indonesia</p>
 				</div>
 			</div>
-			<div class="col-md-12 my-2 card">
-				<div class="card-body">
-					<h5 class="h5">Email</h5>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam perferendis commodi tenetur quos ducimus repellat nulla, nam magni. Commodi iusto ad harum voluptas exercitationem facere eos earum laboriosam excepturi quas?</p>
+
+			<div class="col-md-4">
+				<div class="p-4 dark-card h-100">
+					<div class="icon">📧</div>
+					<h5 class="section-title">Email</h5>
+					<p>emailkamu@gmail.com</p>
 				</div>
 			</div>
-			<div class="col-md-12 my-2 card">
-				<div class="card-body">
-					<h5 class="h5">No.HP</h5>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam perferendis commodi tenetur quos ducimus repellat nulla, nam magni. Commodi iusto ad harum voluptas exercitationem facere eos earum laboriosam excepturi quas?</p>
+
+			<div class="col-md-4">
+				<div class="p-4 dark-card h-100">
+					<div class="icon">📱</div>
+					<h5 class="section-title">No. HP</h5>
+					<p>08xxxxxxxxxx</p>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
-	<div class="container py-4">
-		<footer class="pt-3 mt-4 text-muted border-top">
-			<div class="container">
-				&copy; <?= Date('Y') ?>
-			</div>
+
+	<!-- FOOTER -->
+	<div class="container py-5">
+		<footer class="text-center border-top pt-4 mt-5">
+			<p>&copy; <?= Date('Y') ?> MyBlog Gndrng</p>
 		</footer>
 	</div>
 
-	<!-- Jquery dan Bootsrap JS -->
+	<!-- JS -->
 	<script src="<?= base_url('js/jquery.min.js') ?>"></script>
 	<script src="<?= base_url('js/bootstrap.min.js') ?>"></script>
 

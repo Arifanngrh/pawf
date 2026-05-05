@@ -13,7 +13,7 @@ class PostAdmin extends BaseController
     {
         $post = new PostModel();
         $data['posts'] = $post->findAll();
-        echo view('admin/admin_post_list', $data);
+        return view('admin/admin_post_list', $data);
     }
 
     //--------------------------------------------------------------
@@ -26,7 +26,7 @@ class PostAdmin extends BaseController
         if(!$data['post']){
             throw PageNotFoundException::forPageNotFound();
         }
-        echo view('post_detail', $data);
+        return view('post_detail', $data);
     }
 
     //--------------------------------------------------------------
@@ -51,7 +51,7 @@ class PostAdmin extends BaseController
         }
 
         // tampilkan form create
-        echo view('admin/admin_post_create');
+        return view('admin/admin_post_create');
     }
 
     //--------------------------------------------------------------
@@ -81,7 +81,7 @@ class PostAdmin extends BaseController
         }
 
         // tampilkan form edit
-        echo view('admin/admin_post_update', $data);
+        return view('admin/admin_post_update', $data);
     }
 
     //--------------------------------------------------------------
