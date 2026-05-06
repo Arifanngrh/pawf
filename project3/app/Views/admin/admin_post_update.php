@@ -162,6 +162,7 @@
                 <div class="editor-card">
                     <!-- ACTION diarahkan ke method edit dengan ID, jangan lupa multipart/form-data -->
                     <form action="<?= base_url('admin/post/'.$post['id'].'/edit') ?>" method="post" enctype="multipart/form-data">
+                        <?= csrf_field() ?>
 
                         <input type="hidden" name="id" value="<?= $post['id'] ?>" />
 

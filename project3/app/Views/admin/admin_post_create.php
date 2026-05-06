@@ -151,7 +151,8 @@
                 <div class="editor-card">
                     <!-- CRITICAL: Tambahkan enctype="multipart/form-data" -->
                     <form action="<?= base_url('admin/post/new') ?>" method="post" enctype="multipart/form-data">
-                        
+                        <?= csrf_field() ?>
+
                         <div class="mb-4">
                             <label for="title">Post Title</label>
                             <input type="text" name="title" class="form-control form-control-lg"

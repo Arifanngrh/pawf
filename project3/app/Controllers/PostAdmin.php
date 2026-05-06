@@ -113,7 +113,10 @@ class PostAdmin extends BaseController
             return redirect('admin/post')->with('message', 'Post berhasil diperbarui');
         }
 
-        return view('admin/admin_post_update', $data);
+        return view('admin/admin_post_update', [
+            'post'       => $data['post'],
+            'validation' => $this->validator,
+        ]);
     }
 
     public function delete($id)
