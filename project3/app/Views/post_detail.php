@@ -78,15 +78,21 @@
                 <div class="post-card">
 
                     <div class="post-title">
-                        <?= $post['title'] ?>
+                        <?= esc($post['title']) ?>
                     </div>
 
                     <div class="post-meta">
-                        ✍️ <?= $post['author'] ?> • <?= $post['created_at'] ?>
+                        ✍️ <?= esc($post['author']) ?> • <?= esc($post['created_at']) ?>
                     </div>
 
+                    <?php if (! empty($post['image'])) : ?>
+                        <div class="mb-4 text-center">
+                            <img src="<?= base_url('uploads/' . $post['image']) ?>" alt="<?= esc($post['title']) ?>" class="img-fluid rounded">
+                        </div>
+                    <?php endif; ?>
+
                     <div class="post-content">
-                        <?= $post['content'] ?>
+                        <?= nl2br(esc($post['content'])) ?>
                     </div>
 
                 </div>

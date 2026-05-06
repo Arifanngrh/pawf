@@ -121,10 +121,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('admin/setting') ?>">Setting</a>
-                    </li>
-
-                    <li class="nav-item">
                         <?php if (logged_in()) : ?>
                             <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
                         <?php else: ?>
@@ -138,6 +134,14 @@
     </nav>
 
     <!-- HERO -->
+    <?php if (session()->getFlashdata('message')) : ?>
+        <div class="container mt-5 pt-5">
+            <div class="alert alert-success text-dark">
+                <?= session()->getFlashdata('message') ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <div class="hero">
         <h1>📊 Admin Blog</h1>
         <p>Kelola semua postingan kamu di sini</p>

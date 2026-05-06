@@ -18,7 +18,8 @@ $routes->get('/post/(:any)', 'Post::viewPost/$1');
 $routes->group('admin', ['filter' => 'login'], function ($routes) {  # update
 $routes->get('post', 'PostAdmin::index');
 $routes->get('post/(:segment)/preview', 'PostAdmin::preview/$1');
-$routes->add('post/new', 'PostAdmin::create');
+$routes->get('post/new', 'PostAdmin::create');
+$routes->post('post/new', 'PostAdmin::store');
 $routes->add('post/(:segment)/edit', 'PostAdmin::edit/$1');
 $routes->get('post/(:segment)/delete', 'PostAdmin::delete/$1');
 });
