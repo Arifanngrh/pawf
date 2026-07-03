@@ -1,8 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="post-entry">
-  <h2>{{ post.title }}</h2>
-  <p>{{ post.body }}</p>
-</div>
+<article class="post-detail">
+  <header class="post-detail-header">
+    <h1 class="post-detail-title">{{ post.title }}</h1>
+    <div class="post-detail-meta">
+      <span class="author-badge">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12.93 15A9.996 9.996 0 0 1 .458 15H12.93z"/>
+        </svg>
+        By {{ post.author }}
+      </span>
+    </div>
+  </header>
+  
+  <div class="post-detail-content">
+    {{ post.body|linebreaks }}
+  </div>
+
+  <footer class="post-detail-footer">
+    <a href="{% url 'home' %}" class="back-link">← Kembali ke Daftar Artikel</a>
+  </footer>
+</article>
 {% endblock content %}

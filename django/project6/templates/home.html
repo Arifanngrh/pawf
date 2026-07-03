@@ -1,11 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for post in posts %}
-<div class="post-entry">
-  <h2><a href="">{{ post.title }}</a></h2>
-  <p>Author: {{ post.author }}</p>
-  <p>{{ post.body }}</p>
+<div class="posts-container">
+  {% if request.GET.q %}
+  <div class="search-header">
+    <h2>Hasil pencarian untuk: <span>"{{ request.GET.q }}"</span></h2>
+    {% if posts.count == 0 %}
+    <p class="no-results">Tidak ada artikel yang ditemukan</p>
+    {% else %}
+    <p class="results-count">Ditemukan {{ posts.count }} artikel</p>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if posts %}
+  <div class="posts-grid">
+    {% for post in posts %}
+    <article class="post-entry">
+      <div class="post-header">
+        <h2 class="post-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+      </div>
+      <div class="post-meta">
+        <span class="author-badge">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12.93 15A9.996 9.996 0 0 1 .458 15H12.93z"/>
+          </svg>
+          {{ post.author }}
+        </span>
+      </div>
+      <p class="post-excerpt">{{ post.body|truncatewords:30 }}</p>
+      <a href="{{ post.get_absolute_url }}" class="read-more-link">Baca Selengkapnya →</a>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state">
+    <p>📝 Belum ada artikel. Kembali lagi nanti!</p>
+  </div>
+  {% endif %}
 </div>
-{% endfor %}
 {% endblock content %}
